@@ -184,16 +184,16 @@ if __name__ == '__main__':
             generated_wav = encoder.preprocess_wav(generated_wav)
 
             # Play the audio (non-blocking)
-            if not args.no_sound:
-                import sounddevice as sd
-                try:
-                    sd.stop()
-                    sd.play(generated_wav, synthesizer.sample_rate)
-                except sd.PortAudioError as e:
-                    print("\nCaught exception: %s" % repr(e))
-                    print("Continuing without audio playback. Suppress this message with the \"--no_sound\" flag.\n")
-                except:
-                    raise
+            # if not args.no_sound:
+            #     import sounddevice as sd
+            #     try:
+            #         sd.stop()
+            #         sd.play(generated_wav, synthesizer.sample_rate)
+            #     except sd.PortAudioError as e:
+            #         print("\nCaught exception: %s" % repr(e))
+            #         print("Continuing without audio playback. Suppress this message with the \"--no_sound\" flag.\n")
+            #     except:
+            #         raise
 
             # Save it on the disk
             filename = "demo_output_%02d.wav" % num_generated
